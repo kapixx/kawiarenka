@@ -1,0 +1,6 @@
+{
+  "name": "Kocia Kawiarnia",
+  "description": "Gra typu klimatyczny Clicker Tycoon o kociej kawiarni, gdzie poziomy to liczba kotów, przyciągająca coraz więcej klientów!",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
