@@ -19,10 +19,10 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-     - name: Przygotowanie fałszywego pliku .env (aby uniknąć błędów)
+    - name: Przygotowanie fałszywego pliku .env (aby uniknąć błędów)
       run: cp .env.example .env
 
-    - name: Wygenerowanie brakującego pliku gradlew
+    - name: Wygenerowanie brakujacego pliku gradlew
       run: gradle wrapper
 
     - name: Nadanie uprawnień do skryptu Gradle
@@ -36,3 +36,4 @@ jobs:
       with:
         name: Aplikacja-Gotowa-Do-Pobrania
         path: app/build/outputs/apk/debug/app-debug.apk
+
