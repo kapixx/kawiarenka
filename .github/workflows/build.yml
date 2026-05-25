@@ -1,0 +1,35 @@
+name: Budowanie Android APK
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pobranie kodu repozytorium
+      uses: actions/checkout@v4
+
+    - name: Konfiguracja środowiska Java 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Przygotowanie fałszywego pliku .env (aby uniknąć błędów)
+      run: cp .env.example .env
+
+    - name: Nadanie uprawnień do skryptu Gradle
+      run: chmod +x ./gradlew
+
+    - name: Budowanie aplikacji (wersja Debug)
+      run: ./gradlew assembleDebug
+
+    - name: Udostępnienie gotowego pliku APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: Aplikacja-Gotowa-Do-Pobrania
+        path: app/build/outputs/apk/debug/app-debug.apk
